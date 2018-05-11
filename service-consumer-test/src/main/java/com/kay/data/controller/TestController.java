@@ -16,9 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @Autowired
-    ITestFeign iTestFeign;
+    public ITestFeign testFeign;
+
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
     public String sayHi(@RequestParam String name){
-        return iTestFeign.sayHiFromClientOne(name);
+        return testFeign.sayHiFromClientOne(name);
     }
 }
