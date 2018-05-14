@@ -18,6 +18,8 @@
         <module>service-api</module>
         <module>configure-server</module>
         <module>configure-client</module>
+        <module>configure-client-bus</module>
+        <module>configure-client-bustwo</module>
     </modules>
     <dependencies>
         <dependency>
