@@ -8,7 +8,8 @@ spring:
     config:
       label: master
       profile: dev
-      uri: http://localhost:8888/
+#      uri: http://localhost:8888/
+      fail-fast: true
       discovery:
 #      从配置中心读取文件。高可用配置discovery
         enabled: true
