@@ -6,6 +6,17 @@
 3、/bus/refresh接口可以指定服务，即使用”destination”参数，比如 “/bus/refresh?destination=customers:**” 即刷新服务名为customers的所有服务，不管ip。
 
 ##流程
+###操作流程(优化后框架)
+1、新建配置服务，configure-server（localhost:8888）引入SpringCloud Bus和RabbitMQ。
+   1.1、查看服务启动： http://127.0.0.1:8888/config-client/dev  
+            config-client：可从启动配置客户端的日志中查找。
+            dev：为profiles。
+   1.2、/bus/refresh请求(POST)发送到配置服务（http://127.0.0.1:8888/bus/refresh）.
+            当git上的配置发生变化时候，调用上面post，刷新接口后。各个配置客户服务会更新
+2、新建多个配置客户。配置RabbitMQ,接口连接配置中心（如git）的配置文件的属性。
+   调用接口类，注意@RefreshScope。否则不会刷新。
+   
+###执行流程
 1、提交代码触发post请求给bus/refresh
 2、server端接收到请求并发送给Spring Cloud Bus
 3、Spring Cloud bus接到消息并通知给其它客户端
