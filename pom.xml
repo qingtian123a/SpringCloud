@@ -20,6 +20,17 @@
         <module>configure-client</module>
         <module>configure-client-bus</module>
         <module>configure-client-bustwo</module>
+        <module>serveice-sleuth</module>
+        <module>server-zipkin</module>
+        <module>service-sleuth-zipkin</module>
+        <module>service-sleuth-zipkin2</module>
+        <module>eureka-server-highavailabilily</module>
+        <module>service-consumer-feign</module>
+        <module>service-turbine</module>
+        <module>advance-zipkin-server</module>
+        <module>advance-gateway-service</module>
+        <module>advance-user-service</module>
+        <module>advance-zipkin-server-elk</module>
     </modules>
     <dependencies>
         <dependency>
@@ -120,7 +131,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>operation-cloud</finalName>
+        <finalName>kay-cloud</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

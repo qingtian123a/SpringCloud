@@ -1,0 +1,15 @@
+server:
+  port: 8751
+spring:
+  profiles: peer1
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    service-url:
+      defaultZone: http://peer2:8752/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+  #关闭保护模式
+  server:
+    enable-self-preservation: false

@@ -1,0 +1,25 @@
+package com.kay.feign.controller;
+
+import com.kay.feign.service.ITestFeign;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @Author kay
+ * @Data 2018/5/9 14:37
+ */
+@RestController
+@RequestMapping(value="test")
+public class TestController {
+
+    @Autowired
+    public ITestFeign testFeign;
+
+    @RequestMapping(value = "/hi",method = RequestMethod.GET)
+    public String sayHi(@RequestParam String name){
+        return testFeign.sayHiFromClientOne(name);
+    }
+}

@@ -1,0 +1,25 @@
+server:
+  port: 9411
+spring:
+  application:
+    name: zipkin-server
+#    链路的上传数据从Http改为用消息代组件RabbitMQ，增加以下rabbitmq配置
+#  rabbitmq:
+#      host: localhost
+#      port: 5672
+#      username: guest
+#      password: guest
+# 将链路数据存储在Mysql数据库
+  datasource:
+    url: jdbc:mysql://localhost:3306/zipkin?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: kaysu123
+    driver-class-name: com.mysql.jdbc.Driver
+zipkin:
+  storage:
+    type: mysql
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
